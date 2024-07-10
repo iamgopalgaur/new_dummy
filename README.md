@@ -6,7 +6,24 @@ A Node.js application for managing an online shop, featuring CRUD operations for
 
 1. Clone this repository into your local system.
 2. Go to the installed directory using terminal/command line.
-3. Create .env file in the root folder and add all the keys provided in the email to this file.
+3. Create .env file in the root folder on this repository and add all the keys provided in the email to this file.
+
+- .env file will look something as
+
+```
+PORT=
+MONGODB_USER=
+MONGODB_PASSWORD=
+MONGODB_DBNAME=
+MONGODB_CLUSTER_URI=
+MONGODB_APP_NAME=
+JWT_PRIVATE_KEY=
+MYSQL_DATABASE=
+MYSQL_USERNMAE=
+MYSQL_PASSWORD=
+MYSQL_PORT=
+```
+
 4. Install the dependencies
 
 ```
