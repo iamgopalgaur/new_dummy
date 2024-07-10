@@ -186,3 +186,89 @@ cURL -
 curl --location --request DELETE 'http://localhost:3000/item/668ec94d9438839a2b6f5a55' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0B4eXouY29tIiwidXNlcl9pZCI6IjY2OGVjNjEwOTQzODgzOWEyYjZmNWE0ZiIsImlhdCI6MTcyMDYzMjk5OSwiZXhwIjoxNzIwNjM2NTk5fQ.zMoF_pdpjNdcgKSYqOZ0RxfSedICp0ghPeW7sJTkzbY'
 ```
+
+## Additional Features (for extra points 😉)
+
+- Have integrated MySQL to add some additional features to the above app.
+- User can place order for multiple items, can get information about one order, and can get all their previous orders.
+
+- To run the below endpoint you need to start your local MySQL server and add the required values in .env file
+
+```
+MYSQL_DATABASE=
+MYSQL_USERNMAE=
+MYSQL_PASSWORD=
+MYSQL_PORT=
+```
+
+1. Placing an order
+
+```
+Endpoint - http://localhost:3000/order
+Request Type - POST
+Body
+{
+    "items": [
+        {
+            "itemId": "877dfbvcnbjsfs7984bk",
+            "quantity": 2,
+            "price": 5000
+        },
+        {
+            "itemId": "83322r33u3inbjsf984",
+            "quantity": 1,
+            "price": 3000
+        }
+    ]
+}
+
+cURL -
+
+curl --location 'http://localhost:3000/order' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0B4eXouY29tIiwidXNlcl9pZCI6IjY2OGVjNjEwOTQzODgzOWEyYjZmNWE0ZiIsImlhdCI6MTcyMDYzMjk5OSwiZXhwIjoxNzIwNjM2NTk5fQ.zMoF_pdpjNdcgKSYqOZ0RxfSedICp0ghPeW7sJTkzbY' \
+--data '{
+    "items": [
+        {
+            "itemId": "877dfbvcnbjsfs7984bk",
+            "quantity": 2,
+            "price": 5000
+        },
+        {
+            "itemId": "83322r33u3inbjsf984",
+            "quantity": 1,
+            "price": 3000
+        }
+    ]
+}
+'
+
+```
+
+2. Get all orders
+
+- Will return the order history of the user.
+
+```
+Endpoint - http://localhost:3000/orders
+Request Type  - GET
+cURL -
+curl --location 'http://localhost:3000/orders' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0B4eXouY29tIiwidXNlcl9pZCI6IjY2OGVjNjEwOTQzODgzOWEyYjZmNWE0ZiIsImlhdCI6MTcyMDYzMjk5OSwiZXhwIjoxNzIwNjM2NTk5fQ.zMoF_pdpjNdcgKSYqOZ0RxfSedICp0ghPeW7sJTkzbY'
+
+```
+
+3. Get order by orderId
+
+- Will return the details of a particular order
+
+```
+Endpoint - http://localhost:3000/order/{orderId}
+Request Type - GET
+cURL -
+curl --location 'http://localhost:3000/order/687324bhggywubfw' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY0B4eXouY29tIiwidXNlcl9pZCI6IjY2OGVjNjEwOTQzODgzOWEyYjZmNWE0ZiIsImlhdCI6MTcyMDYzMjk5OSwiZXhwIjoxNzIwNjM2NTk5fQ.zMoF_pdpjNdcgKSYqOZ0RxfSedICp0ghPeW7sJTkzbY'
+
+```
+
+## Thank You
